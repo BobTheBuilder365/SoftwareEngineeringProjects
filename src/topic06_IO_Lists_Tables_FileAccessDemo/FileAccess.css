@@ -1,0 +1,29 @@
+.hbox {
+	-fx-padding: 5px;
+	-fx-spacing: 5px;
+	-fx-alignment: center-left;
+}
+
+.vbox {
+	-fx-padding: 5px;
+	-fx-spacing: 5px;
+}
+
+.label {
+  -fx-font-size: 12px;
+  -fx-font-weight: bold;
+  -fx-text-fill: #000000;
+}
+
+.text-field {
+  -fx-font-size: 12px;
+  -fx-font-weight: bold;
+  -fx-text-fill: #000000;
+}
+
+.button {
+  -fx-font-size: 12px;
+  -fx-font-weight: bold;
+  -fx-font-style: italic;
+  -fx-text-fill: #000000;
+}

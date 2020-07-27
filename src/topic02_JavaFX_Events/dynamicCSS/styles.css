@@ -1,0 +1,15 @@
+.vbox {
+	-fx-padding: 20.0;
+}
+
+.label {
+	-fx-font-weight: bold;
+	-fx-padding: 20.0;
+}
+
+.hasMouse {
+  -fx-text-fill: #008000;
+  -fx-border-color: #000000;
+  -fx-border-width: 1.0px;
+  -fx-border-style: solid;	
+}

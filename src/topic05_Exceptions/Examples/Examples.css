@@ -1,0 +1,33 @@
+.hbox {
+	-fx-padding: 5px;
+	-fx-spacing: 5px;
+	-fx-alignment: center-left;
+}
+
+.label {
+  -fx-font-size: 12px;
+  -fx-font-weight: bold;
+  -fx-text-fill: #000000;
+  -fx-alignment: center;
+  -fx-pref-width: 150;
+}
+
+.text-field {
+  -fx-font-size: 12px;
+  -fx-font-weight: bold;
+  -fx-text-fill: #000000;
+  -fx-alignment: center;
+}
+
+.button {
+  -fx-font-size: 12px;
+  -fx-font-weight: bold;
+  -fx-font-style: italic;
+  -fx-text-fill: #000000;
+  -fx-min-width: 200;
+}
+
+.result {
+  -fx-min-width: 350;
+  -fx-pref-width: 350;
+}

@@ -1,5 +1,7 @@
 package topic_04_JavaFX_PropertiesBindings.animalExercise.v1;
 
+import topic_04_JavaFX_PropertiesBindings.animalExercise.v1.Animal.Geschlecht;
+
 // 1
 public class AnimalModel {
 	private Animal currentAnimal;
@@ -16,4 +18,5 @@ public class AnimalModel {
 	public Animal getPet() {
 		return currentAnimal;
 	}
+	
 }

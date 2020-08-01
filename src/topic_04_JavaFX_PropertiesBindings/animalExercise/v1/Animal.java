@@ -1,5 +1,6 @@
 package topic_04_JavaFX_PropertiesBindings.animalExercise.v1;
 
+// 0
 public class Animal {
 	
 	private static int highestID = -1;
@@ -12,7 +13,7 @@ public class Animal {
 	private String name;
 	
 	// Konstruktor wo Tierart und Geschlecht bestimmt werden muss
-	public Animal(Tierart tierart, Geschlecht geschlecht) {
+	public Animal(Tierart tierart, Geschlecht geschlecht, String name) {
 		highestID++;
 		this.ID = getNextID();
 		this.tierArt = tierArt;

@@ -63,4 +63,9 @@ public class OverwatchModel {
 		
 		return result;
 	}
+	
+	// Dice
+	public int getRandomValue() {
+		return (int) (Math.random() * 6 + 1);
+	}
 }

@@ -4,9 +4,9 @@ import javafx.event.Event;
 
 public class EventTypesController {
 	final private EventTypesModel model;
-	final private EventTypesView view;
+	final private OverwatchView view;
 
-	protected EventTypesController(EventTypesModel model, EventTypesView view) {
+	protected EventTypesController(EventTypesModel model, OverwatchView view) {
 		this.model = model;
 		this.view = view;
 

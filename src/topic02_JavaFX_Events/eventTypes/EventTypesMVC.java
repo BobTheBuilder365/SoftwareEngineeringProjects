@@ -4,7 +4,7 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 
 public class EventTypesMVC extends Application {
-	private EventTypesView view;
+	private OverwatchView view;
 	private EventTypesController controller;
 	private EventTypesModel model;
 
@@ -20,7 +20,7 @@ public class EventTypesMVC extends Application {
 	public void start(Stage primaryStage) {
 		// Initialize the three MVC components
 		model = new EventTypesModel();
-		view = new EventTypesView(primaryStage, model);
+		view = new OverwatchView(primaryStage, model);
 		controller = new EventTypesController(model, view);
 
 		// Display the GUI after all initialization is complete

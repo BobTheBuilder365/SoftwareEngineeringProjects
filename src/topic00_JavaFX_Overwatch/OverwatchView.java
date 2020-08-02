@@ -50,6 +50,9 @@ public class OverwatchView {
 	// Events.DynamicCSS
     protected Label lblAddStyle = new Label("Styles changed by MouseEnter/MouseExit");
     protected Label lblAddClass = new Label("Classes changed by MouseEnter/MouseExit");
+    
+    // Dice
+	Button[] dice = new Button[2]; // Array for buttons
 	
 	// 0 Konstruktor
 	public OverwatchView(Stage primaryStage, OverwatchModel model) {
@@ -70,11 +73,14 @@ public class OverwatchView {
 		root.setRight(rootRight);
 		root.setBottom(rootBottom);
 		
+		rootTop.setCenter(createDicePane());
+		
 		rootCenter.setTop(createButtonClickPane());
 		rootCenter.setLeft(createCalculatorPane());
 		rootCenter.setCenter(createEventTypesPane());
 		rootCenter.setRight(createDynamicCSSVBox());
 		rootCenter.setBottom(createEventHandlingPane());
+
 		
 		
 		// 0 Standard stuff for Scene and Stage
@@ -191,6 +197,16 @@ public class OverwatchView {
 		root.getChildren().addAll(lblAddStyle, lblAddClass);
 		root.getStyleClass().add("vbox");
 		
+		return root;
+	}
+
+	// 0 Dice
+	private Pane createDicePane() {
+		GridPane root = new GridPane();
+		for (int i = 0; i < 2; i++) {
+			dice[i] = new Button("1");
+			root.add(dice[i], i, 0);
+		}
 		return root;
 	}
 }

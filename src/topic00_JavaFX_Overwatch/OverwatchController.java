@@ -40,7 +40,7 @@ public class OverwatchController implements EventHandler<ActionEvent> { // 1 Eve
 		view.btnEquals.setOnAction(this);
 
 		
-		// EventTypes
+		// EventTypes (&Handling)
 		view.btnEventClick.setOnAction(this::displayEvent);
 		view.btnEventClick.setOnContextMenuRequested(this::displayEvent);
 		view.btnEventClick.setOnKeyPressed(this::displayEvent);
@@ -81,7 +81,13 @@ public class OverwatchController implements EventHandler<ActionEvent> { // 1 Eve
 		});		
 		view.lblAddStyle.setOnMouseExited(e -> {
 			view.lblAddStyle.setStyle("");
-		});		
+		});	
+		
+		
+		// Dice (Eine Methoe für mehrere Buttons)
+		for (Button btn : view.dice) {
+			btn.setOnAction(this::roll);
+		}
 	}
 
 	// 2 ButtonCLick
@@ -104,8 +110,7 @@ public class OverwatchController implements EventHandler<ActionEvent> { // 1 Eve
 		Platform.exit();
 	}
 
-	// 2
-	// CALCULATOR
+	// 2 CALCULATOR
 	@Override
 	public void handle(ActionEvent event) {
 		Button btn = (Button) event.getSource();
@@ -120,15 +125,24 @@ public class OverwatchController implements EventHandler<ActionEvent> { // 1 Eve
 		}
 	}
 	
-	// EventTypes
+	// 2 EventTypes
 	private void displayEvent(Event mouseEvent) {
 		String desc = mouseEvent.getEventType().toString() + "\n";
 		view.txtEventLog.appendText(desc);
 	}
 	
+	// Dice 
+	private void roll(ActionEvent e) {
+		// Get the button that was clicked
+		Button btn = (Button) e.getSource();		
+		// Roll a new value, and place the value into the button
+		int value = model.getRandomValue();
+		String s = Integer.toString(value);
+		btn.setText(s);
+	}	
 	// Wie ruft ein Event Handler eine Methode auf?
 	
-	// Wie holt eine Methode im Controller eine Zahl im Model?	
+	// Wie holt eine Methode im Controller eine Zahl im Model?	model.getValue();
 	// Wie konvertierte man diese Zahl in eine Zeichenkette?
 	
 	

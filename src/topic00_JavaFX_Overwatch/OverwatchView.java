@@ -67,7 +67,7 @@ public class OverwatchView {
     // Dice
 	Button[] dice = new Button[2]; // Array for buttons
 	
-	// ListView
+	// ListView (read only - generally just addable and multi selectable)
 	protected ListView<Integer> listView;	
 	protected Button btnAddNewElt = new Button("Add New Element");
 	protected Button btnMultiply = new Button("Multiply by 2");
@@ -88,10 +88,10 @@ public class OverwatchView {
 		// 0 Wurzel als Hauptbehälter
 		BorderPane root = new BorderPane();
 		HBox rootTop = new HBox();
-		BorderPane rootLeft = new BorderPane();
+		VBox rootLeft = new VBox();
 		BorderPane rootCenter = new BorderPane();
-		BorderPane rootRight = new BorderPane();
-		BorderPane rootBottom = new BorderPane();
+		VBox rootRight = new VBox();
+		HBox rootBottom = new HBox();
 		
 		
 		root.setTop(rootTop);
@@ -100,15 +100,19 @@ public class OverwatchView {
 		root.setRight(rootRight);
 		root.setBottom(rootBottom);
 		
-		rootTop.getChildren().add(createListView());
-		rootTop.getChildren().add(createDicePane()); 
-//		rootTop.setLeft(createTableView());
+		// rootCenter - Center
+		rootCenter.setCenter(createListViewPane());
 		
-		rootCenter.setTop(createButtonClickPane());
-		rootCenter.setLeft(createCalculatorPane());
-		rootCenter.setCenter(createEventTypesPane());
-		rootCenter.setRight(createDynamicCSSVBox());
-		rootCenter.setBottom(createEventHandlingPane());
+		// TOP
+		rootTop.getChildren().add(createButtonClickPane());
+		rootTop.getChildren().add(createCalculatorPane());
+		rootTop.getChildren().add(createDicePane());
+		
+		// BOTTOM
+		rootBottom.getChildren().add(createEventTypesPane());
+		rootBottom.getChildren().add(createEventHandlingPane());
+		rootBottom.getChildren().add(createDynamicCSSVBox());
+
 
 		
 		
@@ -214,11 +218,11 @@ public class OverwatchView {
 		root.addRow(0,  lblAnonClass, lblLambda, lblMethodReference);
 		root.addRow(1,  btnClickAnonClass, btnClickLambda, btnClickMethRef);
 		root.add(lblEventHandlingNumber, 0, 2, 3, 1);
-		lblNumber.setId("Number");
+		lblEventHandlingNumber.setId("Number");
 		return root;
 	}
 		
-	// 0 Events.DynamicCSS
+	// 0 Events.DynamicCSS GUI
 	private VBox createDynamicCSSVBox() {
 		VBox root = new VBox();
 		root.getChildren().addAll(lblAddStyle, lblAddClass);
@@ -238,7 +242,7 @@ public class OverwatchView {
 	}
 	
 	// ListView
-	private ListView<Integer> createListView(){
+	private Pane createListViewPane(){
 		// INITIALIZE LISTVIEW: BIND TO OBSERVABLELIST IN MODEL
 		// Wir teilen dem ListeView Objekt mit wo die Daten zu finden sind
 		// verbinden somit MODEL & VIEW - die listView abonniert automatische
@@ -249,21 +253,21 @@ public class OverwatchView {
 		HBox hbox = new HBox(btnMultiply, lblResult);		
 		// Layout root pane
 		VBox root = new VBox();
-		root.getStyleClass().add("rootListView"); // Class for styling
-		root.getStyleClass().add("labelListView"); // Class for styling
-		VBox.setVgrow(listView, Priority.ALWAYS); // Vertical resize goes to the listView
+//		root.getStyleClass().add("rootListView"); // Class for styling
+//		root.getStyleClass().add("labelListView"); // Class for styling
+//		VBox.setVgrow(listView, Priority.ALWAYS); // Vertical resize goes to the listView
 		root.getChildren().addAll(listView, btnAddNewElt, hbox);
 
 		// Size constraints
 		btnAddNewElt.setMaxWidth(Double.MAX_VALUE); // button can grow horizontally		
-		return listView;
+		return root;
 	
 	}
 	
 
 	
 	// Editable TableView
-//	private TableView<SuperNumber> createTableView() {
+//	private TableView<SuperNumber> createEditableTableView() {
 //
 //		TableView<SuperNumber> tableView = new TableView<>();
 //		tableView.setEditable(true); // EDITIEREN ERMÖGLICHEN

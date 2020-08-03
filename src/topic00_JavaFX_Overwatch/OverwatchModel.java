@@ -1,5 +1,9 @@
 package topic00_JavaFX_Overwatch;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import topic06_IO_Lists_Tables_tableViewExampleEDITABLE.SuperNumber;
+
 // Stufe 0 = Basis MVC Struktur und die View
 
 public class OverwatchModel {
@@ -20,7 +24,30 @@ public class OverwatchModel {
 	public int incrementValueEH() {
 		valueEH++;
 		return valueEH;
+	}
+	
+	// List View
+	// Just Add, multiplybyTwo and getter
+	private final ObservableList<Integer> elementsInteger = FXCollections.observableArrayList();
+	public void addNewElement() {
+		elementsInteger.add(elementsInteger.size());
+	}
+	public int multiplyByTwo(int input) {
+		return input * 2;
+	}
+		// getters and setters
+	public ObservableList<Integer> getIntegerElements() {
+		return elementsInteger;
 	}	
+	
+	// Editable TableView
+//	private final ObservableList<SuperNumber> elements = FXCollections.observableArrayList();
+//	public void addNewElement() {
+//		elements.add(new SuperNumber(elements.size()));
+//	} // getters and setters
+//	public ObservableList<SuperNumber> getElements() {
+//		return elements;
+//	}	
 	
 	// 0 Konstruktor
 	protected OverwatchModel() {

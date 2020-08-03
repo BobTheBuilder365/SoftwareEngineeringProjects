@@ -1,25 +1,38 @@
 package topic00_JavaFX_Overwatch;
 
+import javafx.geometry.Insets;
+
 // Stufe 0 = Basis MVC Struktur und die View
 
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import topic06_IO_Lists_Tables_tableViewExampleEDITABLE.SuperNumber;
 
 public class OverwatchView {
 	
 	// 0 View muss das model und die stage kennen
 	final private OverwatchModel model;
 	final private Stage stage;
+	
+//	protected BorderPane root;
+//	protected VBox vBox;
+//	protected HBox hBox, hBox1, hBox2 = new HBox();
 	
 	// Define the fields in the GUI
 	
@@ -54,6 +67,19 @@ public class OverwatchView {
     // Dice
 	Button[] dice = new Button[2]; // Array for buttons
 	
+	// ListView
+	protected ListView<Integer> listView;	
+	protected Button btnAddNewElt = new Button("Add New Element");
+	protected Button btnMultiply = new Button("Multiply by 2");
+	protected Label lblResult = new Label();
+	
+	// Editable TableView
+//	protected Button tablieViewAddBtn = new Button("Add New Element");
+//	protected TableView<SuperNumber> tableView;
+//	protected TableColumn<SuperNumber, String> colBinary;
+//	protected TableColumn<SuperNumber, String> colDecimal;
+//	protected TableColumn<SuperNumber, String> colHex;
+	
 	// 0 Konstruktor
 	public OverwatchView(Stage primaryStage, OverwatchModel model) {
 		this.stage = primaryStage;
@@ -61,11 +87,12 @@ public class OverwatchView {
 		
 		// 0 Wurzel als Hauptbehälter
 		BorderPane root = new BorderPane();
-		BorderPane rootTop = new BorderPane();
+		HBox rootTop = new HBox();
 		BorderPane rootLeft = new BorderPane();
 		BorderPane rootCenter = new BorderPane();
 		BorderPane rootRight = new BorderPane();
 		BorderPane rootBottom = new BorderPane();
+		
 		
 		root.setTop(rootTop);
 		root.setLeft(rootLeft);
@@ -73,7 +100,9 @@ public class OverwatchView {
 		root.setRight(rootRight);
 		root.setBottom(rootBottom);
 		
-		rootTop.setCenter(createDicePane());
+		rootTop.getChildren().add(createListView());
+		rootTop.getChildren().add(createDicePane()); 
+//		rootTop.setLeft(createTableView());
 		
 		rootCenter.setTop(createButtonClickPane());
 		rootCenter.setLeft(createCalculatorPane());
@@ -96,7 +125,6 @@ public class OverwatchView {
 	public void start() {
 		stage.show();	
 	}
-
 	/**
 	 * 0 - Getter for the stage, so that the controller can access window events
 	 */
@@ -108,7 +136,6 @@ public class OverwatchView {
 	 * a database or network server, before the program ends.
 	 */
 	public void stop() {
-		// TODO Auto-generated method stub
 		stage.hide();
 	}	
 	
@@ -209,4 +236,70 @@ public class OverwatchView {
 		}
 		return root;
 	}
+	
+	// ListView
+	private ListView<Integer> createListView(){
+		// INITIALIZE LISTVIEW: BIND TO OBSERVABLELIST IN MODEL
+		// Wir teilen dem ListeView Objekt mit wo die Daten zu finden sind
+		// verbinden somit MODEL & VIEW - die listView abonniert automatische
+		// alle Events der ObserveableList
+		listView = new ListView<Integer>(model.getIntegerElements());
+		// Lower HBox for multiplication
+		HBox.setHgrow(lblResult, Priority.ALWAYS); // Resize goes to the label
+		HBox hbox = new HBox(btnMultiply, lblResult);		
+		// Layout root pane
+		VBox root = new VBox();
+		root.getStyleClass().add("rootListView"); // Class for styling
+		root.getStyleClass().add("labelListView"); // Class for styling
+		VBox.setVgrow(listView, Priority.ALWAYS); // Vertical resize goes to the listView
+		root.getChildren().addAll(listView, btnAddNewElt, hbox);
+
+		// Size constraints
+		btnAddNewElt.setMaxWidth(Double.MAX_VALUE); // button can grow horizontally		
+		return listView;
+	
+	}
+	
+
+	
+	// Editable TableView
+//	private TableView<SuperNumber> createTableView() {
+//
+//		TableView<SuperNumber> tableView = new TableView<>();
+//		tableView.setEditable(true); // EDITIEREN ERMÖGLICHEN
+//		
+//		// Layout root pane
+//		VBox root = new VBox();
+//		root.setPadding(new Insets(10)); // around edge of VBox
+//		root.setSpacing(10); // between elements
+//		VBox.setVgrow(tableView, Priority.ALWAYS); // Vertical resize goes to the table
+//		root.getChildren().addAll(tableView, tablieViewAddBtn);
+//
+//		// Size constraints
+//		tablieViewAddBtn.setMaxWidth(Double.MAX_VALUE); // button can grow horizontally
+//
+//		// Each column needs a title, and a source of data.
+//		// For editable columns, each column needs to contain a TextField.
+//		colBinary = new TableColumn<>("Binary");
+//		colBinary.setCellFactory(TextFieldTableCell.forTableColumn());
+//		colBinary.setCellValueFactory(c -> c.getValue().asBinaryProperty());
+//		tableView.getColumns().add(colBinary);
+//
+//		colDecimal = new TableColumn<>("Decimal");
+//		colDecimal.setCellFactory(TextFieldTableCell.forTableColumn());
+//		colDecimal.setCellValueFactory(c -> c.getValue().asDecimalProperty());
+//		tableView.getColumns().add(colDecimal);
+//
+//		colHex = new TableColumn<>("Hexadecimal");
+//		colHex.setCellFactory(TextFieldTableCell.forTableColumn());
+//		colHex.setCellValueFactory(c -> c.getValue().asHexadecimalProperty());
+//		tableView.getColumns().add(colHex);
+//
+//		// Finally, attach the tableView to the ObservableList of data
+//		tableView.setItems(model.getElements());
+//
+//		return tableView;
+//	}
+
+
 }

@@ -15,7 +15,7 @@
   -fx-border-insets: 5px;
   -fx-border-color: black;
   -fx-border-width: 2px;
-  -fx-min-width: 200;
+  -fx-min-width: 10;
   -fx-alignment: center;
   -fx-text-alignment: center;
 }
@@ -29,7 +29,7 @@
   -fx-font-weight: bold;
   -fx-font-style: italic;
   -fx-text-fill: #000000;
-  -fx-min-width: 200;
+  -fx-min-width: 10;
 }
 
 // EventHandling
@@ -49,4 +49,15 @@
   -fx-border-color: #000000;
   -fx-border-width: 1.0px;
   -fx-border-style: solid;	
+}
+
+// ListView
+.rootListView {
+	-fx-padding: 10px;
+	-fx-spacing: 10px;
+}
+.labelListView {
+	-fx-font-size: 14pt;
+	-fx-alignment: center;
+	-fx-max-width: 99999px;
 }

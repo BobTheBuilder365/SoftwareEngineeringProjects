@@ -29,8 +29,6 @@ public class OverwatchMVC extends Application {
 		// Nothing to do in this example
 	}
 	
-
-
 	/**
 	 * 0 - Note the dependencies between model, view and controller. Additionally,
 	 * the view needs access to the primaryStage

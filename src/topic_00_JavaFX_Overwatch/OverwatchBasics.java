@@ -1,4 +1,4 @@
-package topic00_JavaFX_Overwatch;
+package topic_00_JavaFX_Overwatch;
 
 public class OverwatchBasics {
 	

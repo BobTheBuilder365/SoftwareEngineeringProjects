@@ -1,4 +1,4 @@
-package ch.fhnw.richards.xtra01_InductionRecursion;
+package xtra01_InductionRecursion;
 
 import static org.junit.jupiter.api.Assertions.*;
 

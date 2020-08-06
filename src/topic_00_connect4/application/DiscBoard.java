@@ -3,7 +3,7 @@ package topic_00_connect4.application;
 public class DiscBoard {
 
 	// Boardgrösse als Konstanten
-	public final int KACHEL_GRÖSSE = 80;
+	public final int KACHEL_GR�SSE = 80;
 	public final int SPALTEN = 7;
 	public final int ZEILEN = 6;
 

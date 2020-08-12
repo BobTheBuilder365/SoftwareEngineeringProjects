@@ -1,4 +1,4 @@
-package topic08_Generics.solutions.ListEasy;
+package topic08_Generics.ListEasy;
 
 public class ListElement<T> {
 	private T data;

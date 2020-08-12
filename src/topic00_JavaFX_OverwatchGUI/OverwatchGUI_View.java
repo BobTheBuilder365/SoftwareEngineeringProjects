@@ -2,6 +2,8 @@ package topic00_JavaFX_OverwatchGUI;
 
 import javafx.scene.Scene;
 import javafx.scene.control.ColorPicker;
+import javafx.scene.control.ProgressIndicator;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -17,6 +19,11 @@ public class OverwatchGUI_View {
 	final private OverwatchGUI_Model model;
 	final private Stage stage;
 	
+	
+	// Instanziere ein Image, gebe URL an, und geb noch ein Flag -> Bitte gibt mir das Bild asynchron
+//	final ProgressIndicator progressIndicator = new ProgressIndicator();
+//	final Image image = new Image("", true;)
+//	
 	// 0 Konstruktor
 	public OverwatchGUI_View(Stage primaryStage, OverwatchGUI_Model model) {
 		this.stage = primaryStage;

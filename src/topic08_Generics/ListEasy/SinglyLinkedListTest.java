@@ -1,4 +1,4 @@
-package topic08_Generics.solutions.ListEasy;
+package topic08_Generics.ListEasy;
 
 import org.junit.Before;
 import org.junit.Test;

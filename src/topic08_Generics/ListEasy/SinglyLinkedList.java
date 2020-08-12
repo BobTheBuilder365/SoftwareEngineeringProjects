@@ -1,6 +1,6 @@
-package topic08_Generics.solutions.ListEasy;
+package topic08_Generics.ListEasy;
 
-import topic08_Generics.solutions.ListEasy.ListException.ListErrorCode;
+import topic08_Generics.ListEasy.ListException.ListErrorCode;
 
 public class SinglyLinkedList<T> {
 	private ListElement<T> head = null;

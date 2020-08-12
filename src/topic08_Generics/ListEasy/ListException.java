@@ -1,4 +1,4 @@
-package topic08_Generics.solutions.ListEasy;
+package topic08_Generics.ListEasy;
 
 /**
  * These error codes could be enhanced with real error messages.

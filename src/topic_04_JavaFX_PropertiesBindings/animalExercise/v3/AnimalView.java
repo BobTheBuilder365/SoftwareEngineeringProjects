@@ -59,6 +59,10 @@ public class AnimalView {
 		stage.show();
 	}
 
+	public AnimalView() {
+		// TODO Auto-generated constructor stub
+	}
+
 	// 0
 	public void start() {
 		stage.show();

@@ -1,5 +1,6 @@
 package topic00_JavaFX_OverwatchGUI;
 
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.ProgressIndicator;
@@ -9,9 +10,10 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.RectangleBuilder;
 import javafx.stage.Stage;
-import topic00_JavaFX_OverwatchNEW.OverwatchModel;
+import topic_04_JavaFX_PropertiesBindings.animalExercise.v3.AnimalModel;
+import topic_04_JavaFX_PropertiesBindings.animalExercise.v3.AnimalView;
+import topic_04_JavaFX_PropertiesBindings.animalExercise.v3.AnimalController;
 
 public class OverwatchGUI_View {
 
@@ -46,11 +48,12 @@ public class OverwatchGUI_View {
 		root.setTop(topBox);
 		root.setBottom(bottomBox);
 		
+		// Data Binding
 		leftBox.getChildren().add(createColorPropertiesPane());
 		
+		// Properties and Bindings (Animal)
+		centerBox.getChildren().add(createAnimalVieWPane());
 		
-		
-	
 		// 0 Standard stuff for Scene and Stage
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(
@@ -80,30 +83,45 @@ public class OverwatchGUI_View {
 	
 	/**
 	 * Data Binding
-	 * Erzeugt ein Bereich um eine Farbe auszuwählen und ein Rechteck
-	 * rect.fillProperty().bind(picker.valueProperty()); bindet den augewählten Farbwert
+	 * Erzeugt ein Bereich um eine Farbe auszuwï¿½hlen und ein Rechteck
+	 * rect.fillProperty().bind(picker.valueProperty()); bindet den augewï¿½hlten Farbwert
 	 * an das Reckteck.
-	 * rect.widthProperty().bind(picker.widthProperty()); bindet zusätzlich die Breite 
+	 * rect.widthProperty().bind(picker.widthProperty()); bindet zusï¿½tzlich die Breite 
 	 * des Rechtecks an die Breite des Farbauswahl Felds
 	 * @return
 	 */
 	private Pane createColorPropertiesPane() {
 		VBox pane = new VBox();
 		
-		// Objekt im Farben auszuwählen
+		// Objekt um Farben auszuwï¿½hlen und Bereich um Farbe anzubinden
 		ColorPicker picker = new ColorPicker();
-//		Rectangle rect = RectangleBuilder.create().width(200).height(100).build(); // VERALTET
 		Rectangle rect = new Rectangle();
 		rect.setWidth(200);
-		rect.setHeight(100);
-		
-		// Fügt den picker und das Rechteck dem Bereich hinzu
+		rect.setHeight(100);	
+		// Fï¿½gt den picker und das Rechteck dem Bereich hinzu
 		pane.getChildren().addAll(picker, rect);
 		
-		// Binding
+		// Binding (Farbe und Breite)
 		rect.fillProperty().bind(picker.valueProperty());
 		rect.widthProperty().bind(picker.widthProperty());
 		
 		return pane;
 	}
+	
+	/** TODO
+	 * Properties and Bindings (Animal) 
+	 * @return
+	 */
+	private Pane createAnimalVieWPane() {
+		VBox root = new VBox();
+
+//		root.getChildren().add(createDataEntryPane());
+//		root.getChildren().add(createControlPane());
+//		root.getChildren().add(createDataDisplayPane());
+//		root.getChildren().add(createTestDisplayPane());
+			
+		return root;
+	}
+
+
 }

@@ -2,7 +2,7 @@ package topic_11_Threads;
 
 import java.util.Scanner;
 
-public class ThreadDemo {
+public class ThreadDemoCLASS {
 	
 	public static class MyThread extends Thread{
 		public MyThread(String name) {

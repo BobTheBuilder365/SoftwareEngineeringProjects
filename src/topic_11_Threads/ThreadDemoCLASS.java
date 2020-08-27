@@ -8,7 +8,7 @@ public class ThreadDemoCLASS {
 		public MyThread(String name) {
 			super(name);
 			
-			// Wenn "true" kann dieser Thread nur dann laufen, wenn auch der "main" Thread läuft
+// Wenn "true" kann dieser Thread nur dann laufen, wenn auch der "main" Thread läuft
 			this.setDaemon(true); 
 		}	
 		public void run() {

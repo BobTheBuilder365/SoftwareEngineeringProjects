@@ -1,4 +1,5 @@
-package topic_00_JavaFX_Overwatch;
+package topic_00_JavaFX_OverwatchNEW;
+
 
 import javafx.application.Platform;
 import javafx.collections.ListChangeListener;
@@ -15,12 +16,6 @@ import topic_06_IO_Lists_Tables_tableViewExampleEDITABLE.SuperNumber;
 // Stufe 1 = Model bestimmen
 // Stufe 2 = Controller mit Model und Vie verbinden, Events und Event Handling
 
-/**	
- * 1. Event Handling
- * 2. Model Methode was gemacht werden soll
- * 3. Update der Vie mit den neuen Werten des Models
- */
-
 public class OverwatchController implements EventHandler<ActionEvent> { // 1 Eventhandler
 	
 	// 0 Controller muss Model und View kennen
@@ -31,8 +26,6 @@ public class OverwatchController implements EventHandler<ActionEvent> { // 1 Eve
 	protected OverwatchController(OverwatchModel model, OverwatchView view) {
 		this.model = model;
 		this.view = view;
-		
-
 
 		// BUTTONCLICK
 		// register ourselves to listen for button clicks

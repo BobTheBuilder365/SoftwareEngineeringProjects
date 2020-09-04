@@ -1,4 +1,4 @@
-package ch.fhnw.richards.xtra01_InductionRecursion.solutions;
+package xtra01_InductionRecursion.solutions;
 
 public class ExerciseSolutions {
 

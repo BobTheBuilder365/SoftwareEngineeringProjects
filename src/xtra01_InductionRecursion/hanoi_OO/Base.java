@@ -1,4 +1,4 @@
-package ch.fhnw.richards.xtra01_InductionRecursion.hanoi_OO;
+package xtra01_InductionRecursion.hanoi_OO;
 
 /**
  * Both disks and posts can have a disk on top of them. For a post, this is the

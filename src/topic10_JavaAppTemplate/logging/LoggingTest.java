@@ -6,7 +6,10 @@ import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class LoggingTest {
+import javafx.application.Application;
+import javafx.stage.Stage;
+
+public class LoggingTest extends Application {
 	// Name of the main logger
 	public static final String LOGGER_NAME = LoggingTest.class.getSimpleName();
 	private Logger logger = null; // The logger object for this class
@@ -48,5 +51,11 @@ public class LoggingTest {
 		logger.fine("Fine message from main class");
 		logger.info("Info message from main class");
 		logger.warning("Warning message from main class");
+	}
+
+	@Override
+	public void start(Stage arg0) throws Exception {
+		launch();// TODO Auto-generated method stub
+		
 	}
 }

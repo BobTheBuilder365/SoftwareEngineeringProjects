@@ -14,7 +14,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 // 1= 	Verlinkung "View" mit "Stage" und "Model"
 
-// 2 bis 3 beinhaltet die "GUI" Gkomponenten, welche wir brauchen
+// 2 bis 3 beinhaltet die "GUI" Komponenten, welche wir brauchen
 // 2=	"Menubar" Implementierung
 // 2.1=	"VBox" for controls and information displays
 // 3=	"GridPane" zum anzeigen des als 2D-array gespeicherten Spielfelds

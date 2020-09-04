@@ -1,4 +1,4 @@
-package ch.fhnw.richards.xtra01_InductionRecursion.hanoi_OO;
+package xtra01_InductionRecursion.hanoi_OO;
 
 /**
  * A disk has a size, and can have another (smaller) disk on top of itself.

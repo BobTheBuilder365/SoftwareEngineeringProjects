@@ -1,4 +1,4 @@
-package ch.fhnw.richards.xtra01_InductionRecursion.hanoi_OO;
+package xtra01_InductionRecursion.hanoi_OO;
 
 public class Hanoi {
 	private static final Post A = new Post("A");

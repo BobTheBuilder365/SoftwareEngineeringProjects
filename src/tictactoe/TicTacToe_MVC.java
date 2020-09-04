@@ -3,6 +3,7 @@ package tictactoe;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
+
 public class TicTacToe_MVC extends Application {
 	private TicTacToe_Model model;
 	private TicTacToe_View view;

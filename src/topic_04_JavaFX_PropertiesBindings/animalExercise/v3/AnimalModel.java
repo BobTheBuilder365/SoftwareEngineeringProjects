@@ -1,8 +1,8 @@
 package topic_04_JavaFX_PropertiesBindings.animalExercise.v3;
 
 import javafx.beans.property.SimpleObjectProperty;
+import topic_00_CourseSummary.Pet;
 import topic_04_JavaFX_PropertiesBindings.animalExercise.v3.Animal.Geschlecht;
-import topic_04_JavaFX_PropertiesBindings.petExercise.v3.Pet;
 
 // 1
 public class AnimalModel {

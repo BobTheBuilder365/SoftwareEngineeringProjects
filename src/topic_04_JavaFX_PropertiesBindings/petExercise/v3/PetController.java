@@ -2,8 +2,9 @@ package topic_04_JavaFX_PropertiesBindings.petExercise.v3;
 
 
 import javafx.event.ActionEvent;
-import topic_04_JavaFX_PropertiesBindings.petExercise.v3.Pet.Gender;
-import topic_04_JavaFX_PropertiesBindings.petExercise.v3.Pet.Species;
+import topic_00_CourseSummary.Pet;
+import topic_00_CourseSummary.Pet.Gender;
+import topic_00_CourseSummary.Pet.Species;
 
 public class PetController {
 	private PetView view;

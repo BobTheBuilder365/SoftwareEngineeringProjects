@@ -2,6 +2,7 @@ package topic_04_JavaFX_PropertiesBindings.petExercise.v3;
 
 
 import javafx.beans.property.SimpleObjectProperty;
+import topic_00_CourseSummary.Pet;
 
 public class PetModel {
 	private final SimpleObjectProperty<Pet> petProperty = new SimpleObjectProperty<>();

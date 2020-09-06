@@ -10,8 +10,9 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import topic_04_JavaFX_PropertiesBindings.petExercise.v3.Pet.Gender;
-import topic_04_JavaFX_PropertiesBindings.petExercise.v3.Pet.Species;
+import topic_00_CourseSummary.Pet;
+import topic_00_CourseSummary.Pet.Gender;
+import topic_00_CourseSummary.Pet.Species;
 
 public class PetView {
 	private Stage stage;

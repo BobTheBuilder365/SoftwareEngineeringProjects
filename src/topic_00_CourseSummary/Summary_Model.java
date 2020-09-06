@@ -27,25 +27,25 @@ public class Summary_Model {
 	}
 
 	
-	// 2.1 Properties Bindings
+	// 2.1 Pet - Properties Bindings
 	private final SimpleObjectProperty<Pet> petProperty = new SimpleObjectProperty<>();
 
-	// 2.2 Properties Bindings
+	// 2.2 Pet - Properties Bindings
 	public void savePet(Pet.Species species, Pet.Gender gender, String name) {
 		petProperty.set(new Pet(species, gender, name));
 	}
 	
-	// 2.2 Properties Bindings	
+	// 2.2 Pet - Properties Bindings	
 	public void deletePet() {
 		petProperty.set(null);
 	}
 	
-	// 2.2 Properties Bindings	
+	// 2.2 Pet - Properties Bindings	
 	public Pet getPet() {
 		return petProperty.get();
 	}
 	
-	// 2.2 Properties Bindings	
+	// 2.2 Pet - Properties Bindings	
 	public SimpleObjectProperty<Pet> petProperty() {
 		return petProperty;
 	}

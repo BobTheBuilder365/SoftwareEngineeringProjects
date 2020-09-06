@@ -34,7 +34,7 @@ public class Summary_View {
     // 1.1 Dice
 	Button[] dice = new Button[2]; // Array for buttons
 
-	// 1.1 Properties Bindings
+	// 1.1 Pet - Properties Bindings
 	TextField txtName = new TextField();
 	ComboBox<Species> cmbSpecies = new ComboBox<>();
 	ComboBox<Gender> cmbGender = new ComboBox<>();
@@ -114,7 +114,7 @@ public class Summary_View {
 		return root;
 	}
 
-	// 1 Properties Bindings - Methode um Teil des GUIs zu erzeugen
+	// 1 Pet - Properties Bindings - Methode um Teil des GUIs zu erzeugen
 	private Pane createDataEntryPane() {
 		GridPane pane = new GridPane();
 		pane.setId("dataEntry");
@@ -136,7 +136,7 @@ public class Summary_View {
 		
 		return pane;
 	}
-	// 1 Properties Bindings - Methode um Teil des GUIs zu erzeugen
+	// 1 Pet - Properties Bindings - Methode um Teil des GUIs zu erzeugen
 	private Pane createControlPane() {
 		GridPane pane = new GridPane();
 		pane.setId("controlArea");
@@ -145,7 +145,7 @@ public class Summary_View {
 		
 		return pane;
 	}
-	// 1 Properties Bindings - Methode um Teil des GUIs zu erzeugen
+	// 1 Pet - Properties Bindings - Methode um Teil des GUIs zu erzeugen
 	private Pane createDataDisplayPane() {
 		GridPane pane = new GridPane();
 		pane.setId("dataDisplay");

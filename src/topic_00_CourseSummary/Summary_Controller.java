@@ -35,7 +35,7 @@ public class Summary_Controller {
 		}
 		
 		
-		//	3.1 Properties Bindings				
+		//	3.1 Pet - Properties Bindings				
 		// Kontrollelemente unter Aktion setzen
 		view.btnSave.setOnAction(this::save);
 		view.btnDelete.setOnAction(this::delete);
@@ -55,7 +55,7 @@ public class Summary_Controller {
 	}	
 
 	
-	//	3.2 Properties Bindings		
+	//	3.2 Pet - Properties Bindings		
 	private void save(ActionEvent e) {
 		Species species = view.cmbSpecies.getValue();
 		Gender gender = view.cmbGender.getValue();
@@ -65,12 +65,12 @@ public class Summary_Controller {
 			updateView(model.getPet());
 		}
 	}
-	//	3.2 Properties Bindings		
+	//	3.2 Pet - Properties Bindings		
 	private void delete(ActionEvent e) {
 		model.deletePet();
 		updateView(model.getPet());
 	}
-	//	3.2 Properties Bindings	
+	//	3.2 Pet - Properties Bindings	
 	private void updateView(Pet pet) {
 		if (pet != null) {
 			view.lblDataID.setText(Integer.toString(pet.getID()));

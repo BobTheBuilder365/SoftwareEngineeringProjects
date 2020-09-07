@@ -1,5 +1,5 @@
 // Dice
-.button {
+button {
   -fx-font-size: 50px;
   -fx-font-weight: bold;
   -fx-text-fill: #800000;
@@ -10,4 +10,14 @@
   -fx-minHeight: 100;
   -fx-prefWidth: 100;
   -fx-prefHeight: 100;
+}
+
+
+// EmailValidator
+.emailOk {
+  -fx-text-fill: green;
+}
+// EmailValidator
+.emailNotOk {
+  -fx-text-fill: red;
 }

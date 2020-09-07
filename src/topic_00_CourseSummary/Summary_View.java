@@ -11,6 +11,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import tictactoe.TicTacToe_Model;
 import topic_00_CourseSummary.Pet.Gender;
 import topic_00_CourseSummary.Pet.Species;
 
@@ -34,6 +35,7 @@ public class Summary_View {
     // 1.1 Dice
 	Button[] dice = new Button[2]; // Array for buttons
 
+	
 	// 1.1 Pet - Properties Bindings
 	TextField txtName = new TextField();
 	ComboBox<Species> cmbSpecies = new ComboBox<>();
@@ -46,6 +48,15 @@ public class Summary_View {
 	Button btnSave = new Button("Save");
 	Button btnDelete = new Button("Delete");
 	
+	
+	// 1.1 TicTacToe
+	protected Button[][] buttons = new Button[TicTacToe_Model.BOARD_SIZE][TicTacToe_Model.BOARD_SIZE];
+	
+	
+	// 1.1 EmailValidator
+    protected TextField txtEmail;
+    
+    
 	// 0 Konstruktor
 	public Summary_View(Stage primaryStage, Summary_Model model) {
 		// TODO Auto-generated constructor stub
@@ -54,16 +65,17 @@ public class Summary_View {
 
 		// 0 Wurzel als Hauptbehälter und Boxen für die Regionen
 		BorderPane root = new BorderPane();
-//		HBox rootTop = new HBox();
+		HBox rootTop = new HBox();
 //		HBox rootBottom = new HBox();
 		VBox rootLeft = new VBox();
-//		VBox rootRight = new VBox();
+		VBox rootRight = new VBox();
 
 		// 1 Dice
 		// Das GUI wird mit der Methode erzeugt und platziert
 		root.setCenter(createDicePane()); // CENTER
 		
-		// 1 Properties Bindings
+		
+		// 1 Pet - Properties Bindings
 		// Das GUI wird mit der Methode erzeugt und platziert		
 		root.setLeft(rootLeft); // LEFT
 		rootLeft.getChildren().add(createDataEntryPane());
@@ -71,15 +83,25 @@ public class Summary_View {
 		rootLeft.getChildren().add(createDataDisplayPane());		
 		
 		
-//		rootTop.getChildren().add(createDicePane()); // TOP
+		// 1 TicTacToe
+		root.setRight(rootRight);
+		rootRight.getChildren().add(createTicTacToePane()); // RIGHT	
+		
+		
+		// 1 EmailValidator
+		root.setTop(rootTop);
+		rootTop.getChildren().add(createEmailValidatorPane()); // TOP
+		
+		
 //		rootBottom.getChildren().add(createDicePane()); // BOTTOM
-//		rootRight.getChildren().add(createDicePane()); // RIGHT	
+
 		
 		// 0 Create the scene using our layout; then display it
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("SummaryCSS.css").toExternalForm());
 		stage.setScene(scene);
 		stage.setTitle("Summary");
+		stage.setResizable(true);
 	}
 
 	// 0
@@ -162,5 +184,29 @@ public class Summary_View {
 	    pane.add(lblGender, 0, 3); pane.add(lblDataGender, 1, 3);
 	    
 	    return pane;
+	}
+
+	// 1 TicTacToe 
+	private Pane createTicTacToePane() {
+		GridPane grid = new GridPane();
+		
+		for (int col = 0; col < TicTacToe_Model.BOARD_SIZE; col++) {
+			for (int row = 0; row < TicTacToe_Model.BOARD_SIZE; row++) {
+				// Create button for this position
+				Button btn = new Button();
+				buttons[col][row] = btn;
+				grid.add(btn, col, row);
+			}
+		}		
+		
+		return grid;
+	}
+
+	// 1 EmailValidator
+	private Pane createEmailValidatorPane() {
+		GridPane grid = new GridPane();
+		txtEmail = new TextField();
+		grid.add(txtEmail, 0, 0);
+		return grid;
 	}
 }

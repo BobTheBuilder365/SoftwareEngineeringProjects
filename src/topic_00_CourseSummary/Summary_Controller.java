@@ -1,5 +1,6 @@
 package topic_00_CourseSummary;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -58,7 +59,31 @@ public class Summary_Controller {
 		// 3.1 EmailValidator
 		view.txtEmail.textProperty().addListener(
 				// Parameters of any PropertyChangeListener
-				(observable, oldValue, newValue) -> validateEmailAddress(newValue));		
+				(observable, oldValue, newValue) -> validateEmailAddress(newValue));
+		
+		
+		// 3.1 ModelPropertyExample
+		// register ourselves to listen for property changes in the model. Each change results in a short animation.
+		model.valueProperty().addListener( (observable, oldValue, newValue) -> {
+		        String newText = Integer.toString(model.getValue());
+		        
+		        // Move to the JavaFX thread
+		        Platform.runLater(new Runnable() {
+		            @Override public void run() {
+				        view.lblNumber.setText(newText);        
+						view.doAnimate();
+		            }
+		        });
+			}
+        );
+		// 3.1 ModelPropertyExample
+		// register ourselves to listen for button clicks
+		view.btnClick.setOnAction((event) -> {
+		        model.incrementValue();
+		        String newText = Integer.toString(model.getValue());
+		        view.lblNumber.setText(newText);        
+			}
+		);
 	}
 
 	// 3.2 Dice 

@@ -1,5 +1,6 @@
 package topic_00_CourseSummary;
 
+import javafx.animation.RotateTransition;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -11,6 +12,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import tictactoe.TicTacToe_Model;
 import topic_00_CourseSummary.Pet.Gender;
 import topic_00_CourseSummary.Pet.Species;
@@ -56,6 +58,10 @@ public class Summary_View {
 	// 1.1 EmailValidator
     protected TextField txtEmail;
     
+    // 1.1 ModelPropertyExample
+    private RotateTransition rotate;
+    protected Label lblNumber;
+	protected Button btnClick;
     
 	// 0 Konstruktor
 	public Summary_View(Stage primaryStage, Summary_Model model) {
@@ -66,7 +72,7 @@ public class Summary_View {
 		// 0 Wurzel als Hauptbehälter und Boxen für die Regionen
 		BorderPane root = new BorderPane();
 		HBox rootTop = new HBox();
-//		HBox rootBottom = new HBox();
+		HBox rootBottom = new HBox();
 		VBox rootLeft = new VBox();
 		VBox rootRight = new VBox();
 
@@ -92,8 +98,8 @@ public class Summary_View {
 		root.setTop(rootTop);
 		rootTop.getChildren().add(createEmailValidatorPane()); // TOP
 		
-		
-//		rootBottom.getChildren().add(createDicePane()); // BOTTOM
+		root.setBottom(rootBottom);
+		rootBottom.getChildren().add(createMPEPane()); // BOTTOM
 
 		
 		// 0 Create the scene using our layout; then display it
@@ -125,6 +131,13 @@ public class Summary_View {
 		// TODO Auto-generated method stub
 		stage.hide();
 	}
+	/**
+	 * 3.2 ModelPropertyExample
+	 * Method to allow the controller to trigger an animation
+	 */
+	public void doAnimate() {
+		rotate.play();
+	}
 
 	// 1 Dice - Methode um das GUI zu erzeugen
 	private Pane createDicePane() {
@@ -136,6 +149,7 @@ public class Summary_View {
 		return root;
 	}
 
+	
 	// 1 Pet - Properties Bindings - Methode um Teil des GUIs zu erzeugen
 	private Pane createDataEntryPane() {
 		GridPane pane = new GridPane();
@@ -186,6 +200,7 @@ public class Summary_View {
 	    return pane;
 	}
 
+	
 	// 1 TicTacToe 
 	private Pane createTicTacToePane() {
 		GridPane grid = new GridPane();
@@ -202,11 +217,33 @@ public class Summary_View {
 		return grid;
 	}
 
+	
 	// 1 EmailValidator
 	private Pane createEmailValidatorPane() {
 		GridPane grid = new GridPane();
 		txtEmail = new TextField();
 		grid.add(txtEmail, 0, 0);
 		return grid;
+	}
+
+	
+	// 1 ModelPropertExample
+	private Pane createMPEPane() {
+		
+		GridPane root = new GridPane();
+		lblNumber = new Label();
+		lblNumber.setText(Integer.toString(model.getValue()));
+		root.add(lblNumber, 0, 0);
+		
+		btnClick = new Button();
+		btnClick.setText("Click Me!");
+		root.add(btnClick, 0, 1);
+		
+		// Prepare animation for use
+		rotate = new RotateTransition(Duration.millis(500));
+		rotate.setByAngle(360);
+		rotate.setCycleCount(1);
+		rotate.setNode(lblNumber);
+		return root;
 	}
 }

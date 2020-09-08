@@ -48,6 +48,8 @@ public class Summary_Model {
 	private Simulator sim;	
 	
 	
+	//
+	
 	// 0 Konstruktor
 	protected Summary_Model() {
 		

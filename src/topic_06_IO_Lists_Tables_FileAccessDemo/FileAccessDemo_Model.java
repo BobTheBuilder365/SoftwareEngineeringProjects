@@ -8,7 +8,7 @@ import java.io.InputStreamReader;
 public class FileAccessDemo_Model {
 
 	private static String SAVE_FILE = "FileAccess_SaveFile.sav";
-	private static String PACKAGE_FILE = "FileAccess_ThisPackage.txt";
+	private static String PACKAGE_FILE = "AMZN.csv";
 	private static String OTHER_PACKAGE = "sampleFiles";
 	private static String OTHER_PACKAGE_FILE = "FileAccess_OtherPackage.txt";
 

@@ -2,6 +2,10 @@ package topic_00_CourseSummary;
 
 import javafx.animation.RotateTransition;
 import javafx.scene.Scene;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -63,6 +67,13 @@ public class Summary_View {
     protected Label lblNumber;
 	protected Button btnClick;
     
+	
+	// 1.1 LineChartExample
+	protected CategoryAxis xAxis = new CategoryAxis();
+	protected NumberAxis yAxis = new NumberAxis();
+	protected LineChart<String,Number> lineChart = 
+            new LineChart<String,Number>(xAxis,yAxis);
+	
 	// 0 Konstruktor
 	public Summary_View(Stage primaryStage, Summary_Model model) {
 		// TODO Auto-generated constructor stub
@@ -75,10 +86,6 @@ public class Summary_View {
 		HBox rootBottom = new HBox();
 		VBox rootLeft = new VBox();
 		VBox rootRight = new VBox();
-
-		// 1 Dice
-		// Das GUI wird mit der Methode erzeugt und platziert
-		root.setCenter(createDicePane()); // CENTER
 		
 		
 		// 1 Pet - Properties Bindings
@@ -89,18 +96,22 @@ public class Summary_View {
 		rootLeft.getChildren().add(createDataDisplayPane());		
 		
 		
-		// 1 TicTacToe
+		// 1 Right - TicTacToe, Dice
 		root.setRight(rootRight);
-		rootRight.getChildren().add(createTicTacToePane()); // RIGHT	
-		
+		rootRight.getChildren().add(createTicTacToePane()); // TicTacToePane	
+		rootRight.getChildren().add(createDicePane()); // Dice
 		
 		// 1 EmailValidator
 		root.setTop(rootTop);
 		rootTop.getChildren().add(createEmailValidatorPane()); // TOP
 		
+		// 1 ModelPropertyExample
 		root.setBottom(rootBottom);
 		rootBottom.getChildren().add(createMPEPane()); // BOTTOM
 
+		// 1 LineChartExample
+		// Das GUI wird mit der Methode erzeugt und platziert
+		root.setCenter(createLineChartPane()); // CENTER
 		
 		// 0 Create the scene using our layout; then display it
 		Scene scene = new Scene(root);
@@ -246,4 +257,64 @@ public class Summary_View {
 		rotate.setNode(lblNumber);
 		return root;
 	}
+
+	private Pane createLineChartPane() {
+		GridPane pane = new GridPane();
+		
+		xAxis.setLabel("Month");
+       
+        lineChart.setTitle("Stock Monitoring, 2010");
+                          
+        XYChart.Series series1 = new XYChart.Series();
+        series1.setName("Portfolio 1");
+        
+        series1.getData().add(new XYChart.Data("Jan", 23));
+        series1.getData().add(new XYChart.Data("Feb", 14));
+        series1.getData().add(new XYChart.Data("Mar", 15));
+        series1.getData().add(new XYChart.Data("Apr", 24));
+        series1.getData().add(new XYChart.Data("May", 34));
+        series1.getData().add(new XYChart.Data("Jun", 36));
+        series1.getData().add(new XYChart.Data("Jul", 22));
+        series1.getData().add(new XYChart.Data("Aug", 45));
+        series1.getData().add(new XYChart.Data("Sep", 43));
+        series1.getData().add(new XYChart.Data("Oct", 17));
+        series1.getData().add(new XYChart.Data("Nov", 29));
+        series1.getData().add(new XYChart.Data("Dec", 25));
+        
+        XYChart.Series series2 = new XYChart.Series();
+        series2.setName("Portfolio 2");
+        series2.getData().add(new XYChart.Data("Jan", 33));
+        series2.getData().add(new XYChart.Data("Feb", 34));
+        series2.getData().add(new XYChart.Data("Mar", 25));
+        series2.getData().add(new XYChart.Data("Apr", 44));
+        series2.getData().add(new XYChart.Data("May", 39));
+        series2.getData().add(new XYChart.Data("Jun", 16));
+        series2.getData().add(new XYChart.Data("Jul", 55));
+        series2.getData().add(new XYChart.Data("Aug", 54));
+        series2.getData().add(new XYChart.Data("Sep", 48));
+        series2.getData().add(new XYChart.Data("Oct", 27));
+        series2.getData().add(new XYChart.Data("Nov", 37));
+        series2.getData().add(new XYChart.Data("Dec", 29));
+        
+        XYChart.Series series3 = new XYChart.Series();
+        series3.setName("Portfolio 3");
+        series3.getData().add(new XYChart.Data("Jan", 44));
+        series3.getData().add(new XYChart.Data("Feb", 35));
+        series3.getData().add(new XYChart.Data("Mar", 36));
+        series3.getData().add(new XYChart.Data("Apr", 33));
+        series3.getData().add(new XYChart.Data("May", 31));
+        series3.getData().add(new XYChart.Data("Jun", 26));
+        series3.getData().add(new XYChart.Data("Jul", 22));
+        series3.getData().add(new XYChart.Data("Aug", 25));
+        series3.getData().add(new XYChart.Data("Sep", 43));
+        series3.getData().add(new XYChart.Data("Oct", 44));
+        series3.getData().add(new XYChart.Data("Nov", 45));
+        series3.getData().add(new XYChart.Data("Dec", 44));
+        
+        pane.add(lineChart,0,1);       
+        lineChart.getData().addAll(series1, series2, series3);
+		return pane;
+	}
+
+
 }

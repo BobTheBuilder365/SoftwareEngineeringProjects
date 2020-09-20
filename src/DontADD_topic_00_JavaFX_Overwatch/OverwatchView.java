@@ -26,7 +26,7 @@ import topic_06_IO_Lists_Tables_tableViewExampleEDITABLE.SuperNumber;
 
 public class OverwatchView {
 	
-	// 0 View muss das model und die stage kennen
+	// 0 View muss das model und die Stage kennen
 	final private OverwatchModel model;
 	final private Stage stage;
 	

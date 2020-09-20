@@ -5,17 +5,6 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import tictactoe.TicTacToe_Model.ValidMove;
 
-//Stufe 0 = Basis MVC Struktur
-//Stufe 1 = Die View
-//Stufe 1.1 Kontrollelemente - Controls used for data processing
-//Stufe 2 = Geschäftslogik
-//Stufe 2.1 Instanzvariabelen
-//Stufe 2.2 Methoden des Models
-//Stufe 2.3 Im Konstruktor
-//Stufe 2.4 Threads / innere Klassen
-//Stufe 3 = EventHandling und die dazu erforderlichen Methoden
-//Stufe 3.1 Kontrollelemente unter Action setzen und Data Binding vornehmen
-//Stufe 3.2 Methoden um die Events im Model und View zu bearbeiten
 
 
 /**

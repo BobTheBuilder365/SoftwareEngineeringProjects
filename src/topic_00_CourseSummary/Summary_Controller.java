@@ -9,16 +9,6 @@ import topic_00_CourseSummary.Pet.Gender;
 import topic_00_CourseSummary.Pet.Species;
 
 
-//Stufe 0 = Basis MVC Struktur
-//Stufe 1 = Die View
-//Stufe 1.1 Kontrollelemente - Controls used for data processing
-//Stufe 2 = Geschäftslogik
-//Stufe 2.1 Instanzvariabelen
-//Stufe 2.2 Methoden des Models
-//Stufe 3 = EventHandling und die dazu erforderlichen Methoden
-//Stufe 3.1 Kontrollelemente unter Action setzen und Data Binding vornehmen // Properties & Changelisteners
-//Stufe 3.2 Methoden um die Events im Model und View zu bearbeiten
-
 public class Summary_Controller {
 	
 	// 0 Controller muss Model und View kennen

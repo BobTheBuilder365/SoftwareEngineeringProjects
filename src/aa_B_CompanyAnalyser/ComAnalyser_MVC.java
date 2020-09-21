@@ -24,7 +24,7 @@ public class ComAnalyser_MVC extends Application {
 	private ComAnalyser_Model model;
 	private ComAnalyser_Controller controller;
 
-	//0
+	//0 
 	public static void main(String[] args) {
 		launch(args);
 		
@@ -33,7 +33,7 @@ public class ComAnalyser_MVC extends Application {
 
 	// 0
 	@Override
-	public void start(Stage stage) {
+	public void start(Stage stage) throws Exception {
 		// Initialize the GUI (erzeuge MVC Struktur)
 		model = new ComAnalyser_Model();
 		view = new ComAnalyser_View(stage, model);

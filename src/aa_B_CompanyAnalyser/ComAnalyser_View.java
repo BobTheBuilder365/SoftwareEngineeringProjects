@@ -5,14 +5,16 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class ComAnalyser_View {
-	
+
 	// 0 View muss Stage und Model kennen
 	private Stage stage;
 	private ComAnalyser_Model model;
@@ -22,32 +24,50 @@ public class ComAnalyser_View {
 
 	// Layouts
 
-
-
-
-	
 	// 0
 	// Konstruktor
 	public ComAnalyser_View(Stage stage, ComAnalyser_Model model) {
 		this.stage = stage;
 		this.model = model;
-		
+
 		// 0 Wurzel als Hauptbehälter
 		BorderPane root = new BorderPane();
+
+		// TOP
+		HBox rootTop = new HBox();
+		rootTop.getChildren().add(searchField);
+		root.setTop(rootTop);
+
+		// CENTER
 		VBox rootCenter = new VBox();
-		
-		
-		root.setCenter(rootCenter); // LEFT
 		rootCenter.getChildren().add(createCompanyChart());
+		root.setCenter(rootCenter);
+
+		// LEFT
+		// GridPane(Node, Spalte, Zeile)
+		GridPane gridPane = new GridPane();
 		
+		Label fundamenteKennzahlen = new Label("Fundamentale Kennzahlen : ");
+		gridPane.add(fundamenteKennzahlen, 0, 0);
 		
+		Label KGV = new Label("Kurs-Gewinn Verhältnis");
+		gridPane.add(KGV, 0, 1);
+		
+		Label cashFLow = new Label("Cashflow : ");
+		gridPane.add(cashFLow, 0, 10);
+		Label cashWachstum = new Label("Cashflow Wachstum : ");
+		gridPane.add(cashWachstum, 0, 11);
+
+		root.setLeft(gridPane);
+
 		// 0 Create the scene using our layout; then display it
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("ComAnalyserStyle.css").toExternalForm());
 		stage.setScene(scene);
 		stage.setTitle("Company Analyser");
-		stage.setResizable(true);		
+		stage.setResizable(true);
 	}
+
 	// 0
 	public void start() {
 		// TODO Auto-generated method stub
@@ -68,9 +88,8 @@ public class ComAnalyser_View {
 	public void stop() {
 		// TODO Auto-generated method stub
 		stage.hide();
-	}	
-	
-	
+	}
+
 	private LineChart createCompanyChart() {
 		final CategoryAxis xAxis = new CategoryAxis();
 		final NumberAxis yAxis = new NumberAxis();
@@ -125,7 +144,7 @@ public class ComAnalyser_View {
 		series3.getData().add(new XYChart.Data("Nov", 45));
 		series3.getData().add(new XYChart.Data("Dec", 44));
 		lineChart.getData().addAll(series1, series2, series3);
-		
+
 		return lineChart;
 	}
 

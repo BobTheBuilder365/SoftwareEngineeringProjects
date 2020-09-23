@@ -1,4 +1,4 @@
-package aa_A_KeyConcepts.Datenstrukturen;
+package aa_A_KeyConcepts.h.Datenstrukturen;
 
 import java.util.ArrayList;
 

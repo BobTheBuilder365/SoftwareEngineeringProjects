@@ -45,20 +45,25 @@ public class ComAnalyser_View {
 
 		// LEFT
 		// GridPane(Node, Spalte, Zeile)
-		GridPane gridPane = new GridPane();
-		
+		GridPane leftGridPane = new GridPane();
+
 		Label fundamenteKennzahlen = new Label("Fundamentale Kennzahlen : ");
-		gridPane.add(fundamenteKennzahlen, 0, 0);
+		leftGridPane.add(fundamenteKennzahlen, 0, 0);
 		
 		Label KGV = new Label("Kurs-Gewinn Verhältnis");
-		gridPane.add(KGV, 0, 1);
+		leftGridPane.add(KGV, 0, 1);
 		
 		Label cashFLow = new Label("Cashflow : ");
-		gridPane.add(cashFLow, 0, 10);
+		leftGridPane.add(cashFLow, 0, 10);
 		Label cashWachstum = new Label("Cashflow Wachstum : ");
-		gridPane.add(cashWachstum, 0, 11);
+		leftGridPane.add(cashWachstum, 0, 11);
 
-		root.setLeft(gridPane);
+		root.setLeft(leftGridPane);
+		
+		// RIGHT
+		GridPane rightGridPane = new GridPane();
+		
+
 
 		// 0 Create the scene using our layout; then display it
 		Scene scene = new Scene(root);

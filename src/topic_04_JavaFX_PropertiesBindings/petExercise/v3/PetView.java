@@ -14,11 +14,12 @@ import topic_00_CourseSummary.Pet;
 import topic_00_CourseSummary.Pet.Gender;
 import topic_00_CourseSummary.Pet.Species;
 
+// 0
 public class PetView {
 	private Stage stage;
 	private PetModel model;
 	
-	// Controls used for data processing
+	// 0 Controls used for data processing
 	TextField txtName = new TextField();
 	ComboBox<Species> cmbSpecies = new ComboBox<>();
 	ComboBox<Gender> cmbGender = new ComboBox<>();
@@ -52,7 +53,9 @@ public class PetView {
 	public void start() {
 		stage.show();
 	}
-
+	
+	// 0 Data Entry Pane
+	// Namenseingabe und Auswahl der Species und des Geschlechts
 	private Pane createDataEntryPane() {
 		GridPane pane = new GridPane();
 		pane.setId("dataEntry");
@@ -61,13 +64,14 @@ public class PetView {
 		Label lblSpecies = new Label("Species");
 		Label lblGender = new Label("Gender");
 		
-		// Fill combos
+		// Fill combos (hol mir die Items,alle hinzufügen von den values der Enums)
 		cmbSpecies.getItems().addAll(Pet.Species.values());
 		cmbSpecies.setValue(Species.CAT);
 		cmbGender.getItems().addAll(Pet.Gender.values());
 		cmbGender.setValue(Gender.FEMALE);
 		
 		// Organize the layout, add in the controls (col, row)
+		// pane.add(child, columnIndex, rowIndex);
 		pane.add(lblName, 0, 0);		pane.add(txtName, 1, 0);
 		pane.add(lblSpecies, 0, 1);		pane.add(cmbSpecies, 1, 1);
 		pane.add(lblGender, 0, 2);	pane.add(cmbGender, 1, 2);
@@ -75,6 +79,7 @@ public class PetView {
 		return pane;
 	}
 
+	// 0 Data Control Pane
 	private Pane createControlPane() {
 		GridPane pane = new GridPane();
 		pane.setId("controlArea");
@@ -84,6 +89,7 @@ public class PetView {
 		return pane;
 	}
 
+	// 0 Data Display Pane
 	private Pane createDataDisplayPane() {
 		GridPane pane = new GridPane();
 		pane.setId("dataDisplay");

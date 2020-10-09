@@ -5,7 +5,8 @@ public class Animal {
 	
 	private static int highestID = -1;
 	
-	public enum Geschlecht { Männchen, Weibchen}; 
+	public enum Geschlecht { Männchen, Weibchen};
+	public enum Tierart { CAT, DOG, HORSE};
 
 	private final int ID;
 	private Tierart tierArt; // ausgelagertes Enum

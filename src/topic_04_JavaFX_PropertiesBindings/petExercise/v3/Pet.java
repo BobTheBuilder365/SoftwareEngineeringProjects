@@ -16,6 +16,7 @@ public class Pet {
 		return ++highestID;
 	}
 	
+	// Konstruktor
 	public Pet(Species species, Gender gender, String name) {
 		this.ID = getNextID();
 		this.species = species;

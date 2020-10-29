@@ -40,7 +40,6 @@ public class Controller {
 		this.mainView.setStatus("Suche durchgeführt"); // setStatus = neue Methode in PlayerCardMainView
 	}
 
-	
 	public void addPlayer(Event event) {
 		String clubName = this.addPlayerView.getClubName();
 		String playerName = this.addPlayerView.getPlayerName();
@@ -53,8 +52,6 @@ public class Controller {
 		this.mainView.setStatus("Spieler hinzugefügt");
 		this.addPlayerView.reset();
 	}
-	
-	
 
 	public void deleteCard(Event event) {
 		String cardInput = this.deletePlayerView.getInputCard();
